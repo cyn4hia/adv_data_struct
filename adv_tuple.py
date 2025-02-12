@@ -6,9 +6,9 @@ class AdvancedTuple(tuple):
         if isinstance(other, tuple):
             # self.__class__ = tuple
             # return AdvancedTuple(*(self + other))]
-            _a_tuple = super(tuple, self)
+            # _a_tuple = super(tuple, self)
             # print(_a_tuple)
-            return AdvancedTuple(*(_a_tuple.__add__(other)))
+            return AdvancedTuple(*(super().__add__(other)))
         else:
             raise TypeError("Unsupported operand type for +")
 
@@ -42,7 +42,7 @@ class AdvancedTuple(tuple):
         return super().index(item, start, stop)
 def main():
     # Your main code here
-    my_tuple = AdvancedTuple(1,2,3)
+    my_tuple = AdvancedTuple(*(1,2,3))
     a_tuple = (4,5,6)
     # print(my_tuple.__add__(a_tuple))
     print(my_tuple+a_tuple)
